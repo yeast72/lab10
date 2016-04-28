@@ -1,0 +1,9 @@
+/bin
+*.class
+
+# eclipse project files
+.project
+.classpath
+.settings/
+.checkstyle
+
