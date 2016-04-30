@@ -1,47 +1,57 @@
 package coinmachine;
+
 /**
  * A Coin represents metalic money with a value.
+ * @author Wisarut Boonnumma
  */
-public class Coin /*TODO implements Comparable<Coin> */ {
+public class Coin implements Comparable<Coin> {
 	/** value of the coin */
 	private final int value;
 	private final String currency;
 
 	/**
 	 * Initialize a new Coin.
-	 * @param value is the value of the Coin
-	 * @pre the value is positive
+	 * 
+	 * @param value
+	 *            is the value of the Coin
+	 * @param the
+	 *            value is positive
 	 */
 	public Coin(int value) {
 		this(value, "Baht");
 	}
-	
+
 	public Coin(int value, String currency) {
-		assert value > 0;  // if not, its YOUR fault
-		if (currency == null) throw new IllegalArgumentException("currency cannot be null");
+		assert value > 0; // if not, its YOUR fault
+		if (currency == null)
+			throw new IllegalArgumentException("currency cannot be null");
 		this.value = value;
 		this.currency = currency;
 	}
+
 	/**
 	 * Get the coin's value.
+	 * 
 	 * @return the value of this coin.
 	 */
 	public int getValue() {
 		return value;
 	}
-	
-	/**
-	 * Get the coin's currency.
-	 * @return the currency of this coin.
-	 */
-	public String getCurrency() { return currency; }
-	
 
 	/**
-	 * Hashcode is used by collections like HashSet and HashMap.
-	 * It should be a value that is unlikely to change and
-	 * usually returns different hash values for objects with
-	 * different attribute values.
+	 * Get the coin's currency.
+	 * 
+	 * @return the currency of this coin.
+	 */
+	public String getCurrency() {
+		return currency;
+	}
+
+	/**
+	 * Hashcode is used by collections like HashSet and HashMap. It should be a
+	 * value that is unlikely to change and usually returns different hash
+	 * values for objects with different attribute values.
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -56,14 +66,21 @@ public class Coin /*TODO implements Comparable<Coin> */ {
 
 	/**
 	 * Two coins are equal if they have the same currency and value.
-	 * @param obj an Object to compare to this coin.
+	 * 
+	 * @param obj
+	 *            an Object to compare to this coin.
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj) {
-//TODO Write a correct equals method for Coin.
-//     You can assume that the currency is never null.
-		return this == obj;
+		// You can assume that the currency is never null.
+		if (!(obj instanceof Coin))
+			return false;
+		if ((((Coin) obj).getValue()) == this.getValue()
+				&& this.getCurrency().equals(((Coin) obj).getCurrency()))
+			return true;
+		return false;
+
 	}
 
 	/**
@@ -71,6 +88,12 @@ public class Coin /*TODO implements Comparable<Coin> */ {
 	 */
 	@Override
 	public String toString() {
-		return value+"-"+currency;
+		return value + "-" + currency;
+	}
+
+	@Override
+	public int compareTo(Coin arg0) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
