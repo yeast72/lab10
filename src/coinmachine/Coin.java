@@ -2,6 +2,7 @@ package coinmachine;
 
 /**
  * A Coin represents metalic money with a value.
+ * 
  * @author Wisarut Boonnumma
  */
 public class Coin implements Comparable<Coin> {
@@ -76,10 +77,8 @@ public class Coin implements Comparable<Coin> {
 		// You can assume that the currency is never null.
 		if (!(obj instanceof Coin))
 			return false;
-		if ((((Coin) obj).getValue()) == this.getValue()
-				&& this.getCurrency().equals(((Coin) obj).getCurrency()))
-			return true;
-		return false;
+		return ((((Coin) obj).getValue()) == this.getValue() && this
+				.getCurrency().equals(((Coin) obj).getCurrency()));
 
 	}
 
